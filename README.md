@@ -1,6 +1,23 @@
 # MyStore
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.1.1.
+A Frontend Web-store that is fully based on the angular MVC Pattern.
+
+
+## Structure
+The Model "Product" is responsible for representing data object.
+
+The ProductService and CartService are responsible for handling the business logic.
+
+The Components are mainly used for the View Layer.
+
+## Functionality
+
+- The store is able to fetch data and represent them.
+- Ability to add items to cart and remove them.
+- Show Total in cart
+- Template-Driven Form-Validation for payment.
+
+
 
 ## Development server
 Run `ng install` to install dependencies
