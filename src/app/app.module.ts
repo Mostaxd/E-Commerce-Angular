@@ -9,6 +9,7 @@ import { CartComponent } from './cart/cart.component';
 import { FormsModule } from '@angular/forms';
 import { ProductDetailsComponent } from './product-details/product-details.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { SuccessComponent } from './cart/success/success.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     ProductListComponent,
     ProductComponent,
     CartComponent,
-    ProductDetailsComponent
+    ProductDetailsComponent,
+    SuccessComponent
   ],
   imports: [
     HttpClientModule,
