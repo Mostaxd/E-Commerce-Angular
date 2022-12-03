@@ -10,6 +10,8 @@
           {{item.title}}
           &nbsp; &nbsp;
           <span class="text-white text-right font-weight-bold">{{item.price | currency}}</span>
+          <br>
+          <!-- <span class="text-white text-right font-weight-bold">Number of items: {{itemsMap.get(item)}}</span> -->
 
           <br>
           <button class="btn btn-danger pull-right" (click)="removeItem(item.title)">remove</button>
@@ -26,13 +28,13 @@
       <hr>
       <form #form="ngForm" (ngSubmit)="submitForm()">
         <h5>Name</h5>
-        <input type="text" name="name-" required minlength="6" [(ngModel)]="name" #custName="ngModel">
+        <input type="text" name="name-" required minlength="6" [(ngModel)]="name" (ngModelChange)="detectNameChange($event)" #custName="ngModel">
         <br>
         <h5>Address</h5>
-        <input type="text" name="address" required minlength="6" [(ngModel)]="address" #custAdd="ngModel">
+        <input type="text" name="address" required minlength="6" [(ngModel)]="address" (ngModelChange)="detectAddressChange($event)" #custAdd="ngModel">
         <br>
         <h5>Credit Card</h5>
-        <input type="string" name="credit" required minlength="12" maxlength="12" [(ngModel)]="creditCard"
+        <input type="string" name="credit" required minlength="12" maxlength="12" [(ngModel)]="creditCard" (ngModelChange)="detectCardChange($event)"
           #card="ngModel">
         <br>
         <button type="submit" [disabled]="form.invalid">Submit</button>

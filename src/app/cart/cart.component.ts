@@ -10,12 +10,14 @@ import { CartService } from '../services/cart.service';
   styleUrls: ['./cart.component.css']
 })
 export class CartComponent implements OnInit {
-  
+
   @Input() cartItems: Product[] = []
   total: number = 0;
   name: string = ''
   address: string = ''
   creditCard: string = ''
+
+
 
   constructor(private cartService: CartService,
     private router: Router) { }
@@ -23,6 +25,8 @@ export class CartComponent implements OnInit {
   ngOnInit(): void {
     this.cartItems = this.cartService.getCartItems()
     this.total = this.cartService.getTotal()
+
+
   }
 
   clearCart() {
@@ -46,6 +50,19 @@ export class CartComponent implements OnInit {
       this.router.navigate(['success']);
     }
 
+  }
+
+
+  detectNameChange(value: string){
+    this.name = value;
+  }
+
+  detectAddressChange(value: string){
+    this.address = value;
+  }
+
+  detectCardChange(value: string){
+    this.creditCard = value;
   }
 
 
