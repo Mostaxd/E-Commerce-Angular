@@ -1,0 +1,44 @@
+nav ul {
+  display: flex;
+  text-align: center;
+  align-items: center;
+  justify-content: space-evenly;
+
+}
+
+li {
+  text-align: center;
+  margin: 15px;
+  display: inline;
+}
+
+p{
+  width: fit-content;
+}
+
+.input {
+  width:50px;
+  text-align: center;
+}
+span{
+  background-color: antiquewhite;
+  border-radius: 5px;
+  border: 1px solid;
+  font-size: 0.75rem;
+  margin-left: 2px;
+  padding: 1px;
+  color: rgb(255, 0, 0);
+}
+
+.old-price {
+  color: rgba(128, 128, 128, 0.862);
+  font-size: 0.9rem;
+}
+
+
+img{
+  height: 550px;
+}
+
+
+

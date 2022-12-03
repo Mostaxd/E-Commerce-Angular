@@ -1,0 +1,21 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-6">
+      <img src="{{product.image}}" class="img-fluid mb-1 mh-75">
+    </div>
+
+    <div class="col-sm-6 details">
+      <h3 class="title mt-1">{{product.title}}</h3>
+      <p class="description mt-3">{{product.description}}
+      </p>
+
+      <div class="discount font-weight-bold mt-5">
+        {{product.price | currency}}
+        <span>50%</span>
+        <div class="old-price"><del>old price</del></div>
+      </div>
+      <button (click)="addToCart()" class="btn btn-dark">Add To Cart</button>
+    </div>
+  </div>
+  <button routerLink="/productlist" class="btn btn-info text-center mh-5">back to products</button>
+</div>

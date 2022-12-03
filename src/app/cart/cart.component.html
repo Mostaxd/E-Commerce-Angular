@@ -1,0 +1,76 @@
+<div class="container align-items-center justify-content-center">
+  <div class="row container d-flex align-items-center justify-content-center">
+    <div class="col-md-6">
+      <h2 class="text-center">Cart Items:</h2>
+      <div class="cart-items p-5 bg-dark bg-gradient rounded">
+        <h5 *ngIf="cartItems.length === 0">Cart is empty</h5>
+
+        <p *ngFor="let item of cartItems" class="bg-secondary bg-gradient">
+          <img src="{{item.image}}" height="80px" class="text-center" />
+          {{item.title}}
+          &nbsp; &nbsp;
+          <span class="text-white text-right font-weight-bold">{{item.price | currency}}</span>
+
+          <br>
+            <button class="btn btn-danger pull-right" (click)="removeItem(item.title)">remove</button>
+
+        </p>
+        <h4 class="bg-gradient-success text-white">Total: {{total | currency}}</h4>
+      </div>
+
+      <button class="btn btn-danger" (click)="clearCart()">Clear Cart</button>
+    </div>
+
+    <div class="col-md-6 text-center">
+      <h2>Payment</h2>
+      <hr>
+      <form #form="ngForm" (ngSubmit)="submitForm()">
+        <h5>Name</h5>
+        <input type="text" name="name-" required minlength="6" [(ngModel)]="name" #custName="ngModel">
+        <br>
+        <h5>Address</h5>
+        <input type="text" name="address" required minlength="6" [(ngModel)]="address" #custAdd="ngModel">
+        <br>
+        <h5>Credit Card</h5>
+        <input type="text" name="credit-card" required minlength="12" [(ngModel)]="creditCard" #card="ngModel">
+        <br>
+        <button type="submit" [disabled]="form.invalid">Submit</button>
+      </form>
+
+      <div *ngIf="custName.invalid && custName.dirty">
+        <div *ngIf="custName.errors && custName.errors['required']">
+          Please Enter Your name
+        </div>
+        <div *ngIf="custName.errors && custName.errors['minlength']">
+          The name must be at least of 6 charachters
+        </div>
+      </div>
+
+      <div *ngIf="custAdd.invalid && custAdd.dirty">
+        <div *ngIf="custAdd.invalid && custAdd.dirty">
+          <div *ngIf="custAdd.errors && custAdd.errors['required']">
+            Please Enter Your address
+          </div>
+          <div *ngIf="custAdd.errors && custAdd.errors['minlength']">
+            The address must be at least of 6 charachters
+          </div>
+        </div>
+
+        <div *ngIf="card.invalid && card.dirty">
+          <div *ngIf="card.invalid && card.dirty">
+            <div *ngIf="card.errors && card.errors['required']">
+              Please Enter Your Card Number
+            </div>
+            <div *ngIf="card.errors && card.errors['minlength']">
+              The Card number must be at least of 12 charachters
+            </div>
+          </div>
+        </div>
+      </div>
+      <hr>
+    </div>
+    <hr>
+  </div>
+  <div class="div justify-content-center text-center">
+    <button routerLink="/productlist" class="btn btn-info text-center mh-5 ">back to products</button>
+  </div>

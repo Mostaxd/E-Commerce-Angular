@@ -1,0 +1,9 @@
+<div class="container align-items-center justify-content-center">
+
+  <div class="row align-items-center justify-content-center bg-light">
+    <div class="col-md-3" *ngFor="let product of products">
+      <app-product [product]="product" (cartAdder)="addToCart($event)"></app-product>
+    </div>
+  </div>
+
+</div>

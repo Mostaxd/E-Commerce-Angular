@@ -1,0 +1,7 @@
+<div class="product align-items-center text-center m-3">
+  <a routerLink="/product-details"><img src="{{product.image}}" (click)="sendProductDetails()"  width="150px" height="200px"/></a>
+  <h2 class="text-center">{{product.title}}</h2>
+  <p class="text-center">{{product.description}}</p>
+  <h4 class="text-center">{{product.price | currency}}</h4>
+  <button class="btn btn-dark" (click)="addToCart(product)">Add To Cart</button>
+</div>
