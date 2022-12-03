@@ -1,7 +1,9 @@
-<div class="product align-items-center text-center m-3">
-  <a routerLink="/product-details"><img src="{{product.image}}" (click)="sendProductDetails()"  width="150px" height="200px"/></a>
-  <h2 class="text-center">{{product.title}}</h2>
-  <p class="text-center">{{product.description}}</p>
-  <h4 class="text-center">{{product.price | currency}}</h4>
+<div class="product  text-center mb-5 mr-3 ">
+  <a class="align-top" routerLink="/product-details"><img src="{{product.image}}" (click)="sendProductDetails()" class="cover pull-" width="150px" height="200px"/></a>
+  <h6 class="text-center">{{product.title}}</h6>
+  <hr>
+  <!-- <p class="text-center">{{product.description}}</p> -->
+  <h5 class="text-center">{{product.price | currency}}</h5>
+  <hr>
   <button class="btn btn-dark" (click)="addToCart(product)">Add To Cart</button>
 </div>

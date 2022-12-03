@@ -2,4 +2,18 @@ p {
   text-overflow: ellipsis;
 }
 
+.cover{
+  object-fit: contain;
+  object-position: center;
+}
+
+.product{
+  display: flex;
+  flex-direction: column;
+  margin-top: auto;
+  padding-top: auto;
+}
+
+
+
 

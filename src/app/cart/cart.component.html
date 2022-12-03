@@ -32,7 +32,7 @@
         <input type="text" name="address" required minlength="6" [(ngModel)]="address" #custAdd="ngModel">
         <br>
         <h5>Credit Card</h5>
-        <input type="text" name="credit-card" required minlength="12" [(ngModel)]="creditCard" #card="ngModel">
+        <input type="number" name="credit-card" required minlength="12" [(ngModel)]="creditCard" #card="ngModel">
         <br>
         <button type="submit" [disabled]="form.invalid">Submit</button>
       </form>
