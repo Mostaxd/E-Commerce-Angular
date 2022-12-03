@@ -10,9 +10,9 @@ import { CartService } from '../services/cart.service';
   styleUrls: ['./cart.component.css']
 })
 export class CartComponent implements OnInit {
+  
   @Input() cartItems: Product[] = []
   total: number = 0;
-
   name: string = ''
   address: string = ''
   creditCard: string = ''

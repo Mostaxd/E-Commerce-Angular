@@ -22,8 +22,10 @@ export class ProductListComponent implements OnInit {
   }
 
   addToCart(product: Product){
-    this.cartService.addToCart(product)
-    window.alert(product.title + ' added to cart')
+    let added = this.cartService.addToCart(product)
+    if(added){
+      window.alert(product.title + ' added to cart')
+    }
   }
 
 
