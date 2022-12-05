@@ -3,22 +3,24 @@
     <div class="col-md-6">
       <h2 class="text-center">Cart Items:</h2>
       <div class="cart-items p-5 bg-dark bg-gradient rounded">
-        <h5 *ngIf="cartItems.length === 0">Cart is empty</h5>
+        <h5 *ngIf="itemsMap.size === 0">Cart is empty</h5>
 
-        <p *ngFor="let item of cartItems" class="bg-secondary bg-gradient">
-          <img src="{{item.image}}" height="80px" class="text-center" />
-          {{item.title}}
+        <p  *ngFor="let mapItem of itemsMap | keyvalue" class="bg-secondary bg-gradient">
+          <img src="{{mapItem.key.image}}" height="80px" class="text-center" />
+          {{mapItem.key.title}}
           &nbsp; &nbsp;
-          <span class="text-white text-right font-weight-bold">{{item.price | currency}}</span>
-          <br>
+          <span class="text-white text-right font-weight-bold">{{mapItem.key.price | currency}}</span>
+          &nbsp;&nbsp;
+          <span>Qty: {{mapItem.value}}</span>
           <!-- <span class="text-white text-right font-weight-bold">Number of items: {{itemsMap.get(item)}}</span> -->
 
           <br>
-          <button class="btn btn-danger pull-right" (click)="removeItem(item.title)">remove</button>
+          <button class="btn btn-danger pull-right" (click)="removeItem(mapItem.key)">remove</button>
 
         </p>
         <h4 class="bg-gradient-success text-white">Total: {{total | currency}}</h4>
       </div>
+
 
       <button class="btn btn-danger" (click)="clearCart()">Clear Cart</button>
     </div>

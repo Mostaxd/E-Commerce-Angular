@@ -7,44 +7,52 @@ import { Product } from '../model/product';
 export class CartService {
   cartItems: Product[] = []
   total = 0;
+  cartMap = new Map<Product, number>();
+
   constructor() { }
 
 
   addToCart(product: Product): boolean {
-    if (this.cartItems.includes(product)) {
-      if (confirm(`${product.title} is already in cart, do you wish to add one more?`) == true) {
-        this.cartItems.push(product);
-        return true
-      }
-      else{
-        return false
-      }
+    if (this.cartMap.has(product)) {
+      this.cartMap.set(product, (this.cartMap.get(product)! + 1))
+      return true
     }
     else {
-      this.cartItems.push(product)
+      this.cartMap.set(product, 1)
       return true
     }
   }
 
-  getCartItems() {
-    return this.cartItems;
+  getCartList() {
+    return this.cartMap;
   }
 
   clearCart() {
-    this.cartItems = []
-    this.total = 0
+    this.cartMap.clear()
+    this.updateTotal()
+  }
+
+  removeItem(product: Product): boolean {
+    this.cartMap.delete(product)
+    this.updateTotal()
+    return true
   }
 
   getTotal(): number {
-    this.total = 0
-    for (let i = 0; i < this.cartItems.length; i++) {
-      this.total += this.cartItems[i].price
-    }
+    this.updateTotal()
     return this.total
   }
 
-  removeItem(title: string) {
-    this.cartItems = this.cartItems.filter(item => item.title !== title)
+  updateTotal() {
     this.total = 0
+    for (let [key, value] of this.cartMap) {
+      this.total += (key.price) * value
+    }
+
+
   }
+
+
+
+
 }

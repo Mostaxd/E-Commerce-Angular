@@ -11,22 +11,22 @@ import { CartService } from '../services/cart.service';
 })
 export class CartComponent implements OnInit {
 
-  @Input() cartItems: Product[] = []
+  cartItems: Product[] = []
+
   total: number = 0;
   name: string = ''
   address: string = ''
   creditCard: string = ''
 
+  itemsMap = new Map<Product, number>();
 
 
   constructor(private cartService: CartService,
     private router: Router) { }
 
   ngOnInit(): void {
-    this.cartItems = this.cartService.getCartItems()
+    this.itemsMap = this.cartService.getCartList()
     this.total = this.cartService.getTotal()
-
-
   }
 
   clearCart() {
@@ -34,9 +34,9 @@ export class CartComponent implements OnInit {
     this.ngOnInit()
   }
 
-  removeItem(title: string) {
-    this.cartService.removeItem(title)
-    window.alert(`${title}is removed from cart`)
+  removeItem(product : Product) {
+    this.cartService.removeItem(product)
+    window.alert(`${product.title}is removed from cart`)
     this.ngOnInit()
   }
 
