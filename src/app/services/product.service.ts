@@ -8,6 +8,7 @@ import { Product } from '../model/product';
 })
 export class ProductService {
   selectedProduct: Product = {
+    id: 0,
     image: '',
     title: '',
     description: '',

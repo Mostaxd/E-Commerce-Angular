@@ -5,7 +5,6 @@ import { Product } from '../model/product';
   providedIn: 'root'
 })
 export class CartService {
-  cartItems: Product[] = []
   total = 0;
   cartMap = new Map<Product, number>();
 
@@ -22,6 +21,16 @@ export class CartService {
       return true
     }
   }
+
+
+
+
+  isProductEqual(p1: Product, p2: Product) {
+    return p1.id === p2.id;
+  }
+
+
+
 
   getCartList() {
     return this.cartMap;

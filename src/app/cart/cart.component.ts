@@ -11,8 +11,6 @@ import { CartService } from '../services/cart.service';
 })
 export class CartComponent implements OnInit {
 
-  cartItems: Product[] = []
-
   total: number = 0;
   name: string = ''
   address: string = ''
@@ -42,7 +40,7 @@ export class CartComponent implements OnInit {
 
 
   submitForm() {
-    if (this.cartItems.length === 0) {
+    if (this.itemsMap.size === 0) {
       window.alert('please add products to the cart!')
     }
     else {

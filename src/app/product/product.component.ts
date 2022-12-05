@@ -14,6 +14,7 @@ export class ProductComponent implements OnInit {
 
   constructor(private productService: ProductService) {
     this.product = {
+      id: 0,
       image: '',
       title: '',
       description: '',
@@ -25,6 +26,7 @@ export class ProductComponent implements OnInit {
   }
 
   addToCart(product: Product) {
+    console.log(this.product)
     this.cartAdder.emit(product)
   }
 

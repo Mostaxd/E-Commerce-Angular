@@ -10,10 +10,11 @@ import { ProductService } from '../services/product.service';
 })
 export class ProductDetailsComponent implements OnInit {
   @Input() product: Product = {
+    id: 0,
     image: '',
     title: '',
     description: '',
-    price: 0
+    price: 0,
   }
 
   constructor(private productService: ProductService,

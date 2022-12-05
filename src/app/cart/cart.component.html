@@ -5,7 +5,7 @@
       <div class="cart-items p-5 bg-dark bg-gradient rounded">
         <h5 *ngIf="itemsMap.size === 0">Cart is empty</h5>
 
-        <p  *ngFor="let mapItem of itemsMap | keyvalue" class="bg-secondary bg-gradient">
+        <p *ngFor="let mapItem of itemsMap | keyvalue" class="bg-secondary bg-gradient">
           <img src="{{mapItem.key.image}}" height="80px" class="text-center" />
           {{mapItem.key.title}}
           &nbsp; &nbsp;
@@ -30,14 +30,16 @@
       <hr>
       <form #form="ngForm" (ngSubmit)="submitForm()">
         <h5>Name</h5>
-        <input type="text" name="name-" required minlength="6" [(ngModel)]="name" (ngModelChange)="detectNameChange($event)" #custName="ngModel">
+        <input type="text" name="name-" required minlength="6" [(ngModel)]="name"
+          (ngModelChange)="detectNameChange($event)" #custName="ngModel">
         <br>
         <h5>Address</h5>
-        <input type="text" name="address" required minlength="6" [(ngModel)]="address" (ngModelChange)="detectAddressChange($event)" #custAdd="ngModel">
+        <input type="text" name="address" required minlength="6" [(ngModel)]="address"
+          (ngModelChange)="detectAddressChange($event)" #custAdd="ngModel">
         <br>
         <h5>Credit Card</h5>
-        <input type="string" name="credit" required minlength="12" maxlength="12" [(ngModel)]="creditCard" (ngModelChange)="detectCardChange($event)"
-          #card="ngModel">
+        <input type="string" name="credit" required minlength="12" maxlength="12" [(ngModel)]="creditCard"
+          (ngModelChange)="detectCardChange($event)" #card="ngModel">
         <br>
         <button type="submit" [disabled]="form.invalid">Submit</button>
       </form>
@@ -52,13 +54,13 @@
       </div>
 
 
-        <div *ngIf="custAdd.invalid && custAdd.dirty">
-          <div *ngIf="custAdd.errors && custAdd.errors['required']">
-            Please Enter Your address
-          </div>
-          <div *ngIf="custAdd.errors && custAdd.errors['minlength']"  class="alert alert-danger invalid">
-            The address must be at least of 6 charachters
-          </div>
+      <div *ngIf="custAdd.invalid && custAdd.dirty">
+        <div *ngIf="custAdd.errors && custAdd.errors['required']">
+          Please Enter Your address
+        </div>
+        <div *ngIf="custAdd.errors && custAdd.errors['minlength']" class="alert alert-danger invalid">
+          The address must be at least of 6 charachters
+        </div>
 
 
         <div *ngIf="card.invalid && card.dirty">
@@ -66,10 +68,10 @@
             <div *ngIf="card.errors && card.errors['required']">
               Please Enter Your address
             </div>
-            <div *ngIf="card.errors && card.errors['minlength']"  class="alert alert-danger invalid">
+            <div *ngIf="card.errors && card.errors['minlength']" class="alert alert-danger invalid">
               The credit card must be exactly 12 charachters
             </div>
-            <div *ngIf="card.errors && card.errors['maxlength']"  class="alert alert-danger invalid">
+            <div *ngIf="card.errors && card.errors['maxlength']" class="alert alert-danger invalid">
               The credit card must be exactly 12 charachters
             </div>
           </div>
