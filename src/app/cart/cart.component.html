@@ -1,88 +1,206 @@
-<div class="container align-items-center justify-content-center">
-  <div class="row container d-flex align-items-center justify-content-center">
-    <div class="col-md-6">
-      <h2 class="text-center">Cart Items:</h2>
-      <div class="cart-items p-5 bg-dark bg-gradient rounded">
-        <h5 *ngIf="itemsMap.size === 0">Cart is empty</h5>
+  <!-- CART ITEMS START -->
 
-        <p *ngFor="let mapItem of itemsMap | keyvalue" class="bg-secondary bg-gradient">
-          <img src="{{mapItem.key.image}}" height="80px" class="text-center" />
-          {{mapItem.key.title}}
-          &nbsp; &nbsp;
-          <span class="text-white text-right font-weight-bold">{{mapItem.key.price | currency}}</span>
-          &nbsp;&nbsp;
-          <span>Qty: {{mapItem.value}}</span>
-          <!-- <span class="text-white text-right font-weight-bold">Number of items: {{itemsMap.get(item)}}</span> -->
+<div class="container h-100">
+  <div class="row d-flex justify-content-center align-items-center h-100">
+    <div class="col-12">
+      <div class="card card-registration card-registration-2 m-5 " style="border-radius: 15px;">
+        <div class="card-body p-0">
+          <div class="row g-0">
 
-          <br>
-          <button class="btn btn-danger pull-right" (click)="removeItem(mapItem.key)">remove</button>
+            <!-- ITEMS OVERVIEW START -->
+            <div class="col-lg-6">
+              <div class="p-5">
+                <h3 class="fs-4 mb-5" style="color: #4835d4;">Cart Items</h3>
 
-        </p>
-        <h4 class="bg-gradient-success text-white">Total: {{total | currency}}</h4>
-      </div>
+                <!-- IF CART IS EMPTY START -->
+                <h5 *ngIf="itemsMap.size === 0">Cart is empty</h5>
+                <div *ngIf="itemsMap.size !== 0" class="cart-items ">
+                <!-- IF CART IS EMPTY END -->
+
+                  <!-- SHOW ALL CART ITEMS START -->
+                  <div class="card rounded-3 mb-4" *ngFor="let mapItem of itemsMap | keyvalue">
+                    <div class="card-body p-4">
+                      <div class="row d-flex justify-content-between align-items-center">
+
+                        <div class="col-md-2 col-lg-2 col-xl-2">
+                          <img src="{{mapItem.key.image}}" class="img-fluid rounded-3" alt="{{mapItem.key.title}}">
+                        </div>
+                        <div class="col-md-3 col-lg-3 col-xl-3">
+                          <p class="lead fw-l mb-2 ">{{mapItem.key.title}}</p>
+                        </div>
+
+                        <div class="col-md-3 col-lg-3 col-xl-2 d-flex">
+                          Qty: {{mapItem.value}}
+                        </div>
+
+                        <div class="col-md-3 col-lg-2 col-xl-2 offset-lg-1">
+                          <h5 class="mb-0 small">{{mapItem.key.price | currency}}</h5>
+                        </div>
+
+                        <div class="col-md-1 col-lg-1 col-xl-1 text-end">
+                          <a class="text-danger "><i class="fa fa-trash" aria-hidden="true"
+                              (click)="removeItem(mapItem.key)"></i></a>
+                        </div>
+                    <!-- SHOW ALL CART ITEMS END -->
+
+            <!-- ITEMS OVERVIEW END -->
+                      </div>
+                    </div>
+                  </div>
+                <!-- TOTAL START -->
+                  <h4 class="bg-gradient-success ">Total: {{total | currency}}</h4>
+                </div>
+                <!-- TOTAL END -->
+                <button class="btn btn-danger" *ngIf="itemsMap.size !== 0" (click)="clearCart()">Clear Cart</button>
+              </div>
+            </div>
+
+  <!-- CART ITEMS END -->
 
 
-      <button class="btn btn-danger" (click)="clearCart()">Clear Cart</button>
+
+  <!-- ADDRESS START -->
+            <div class="col-lg-6 bg-indigo text-white bg-dark  ">
+              <form #form="ngForm" (ngSubmit)="submitForm()">
+                <div class="p-5">
+                  <h3 class="fw-normal mb-5">Contact Details</h3>
+
+
+                  <div class="mb-4 pb-2">
+                    <div class="form-outline form-white">
+                      <input type="text" class="form-control form-control-lg"
+                      required [(ngModel)]="name" name="nameInput" #custName="ngModel" minlength="5" />
+                      <label class="form-label" >Name</label>
+                    </div>
+                  </div>
+
+                  <div class="mb-4 pb-2">
+                    <div class="form-outline form-white">
+                      <input type="text" class="form-control form-control-lg"
+                      required [(ngModel)]="address" name="addressInput" #custAddress="ngModel" minlength="12"/>
+                      <label class="form-label" >Address</label>
+                    </div>
+                  </div>
+
+                  <div class="row">
+
+                    <div class="col-md-5 mb-4 pb-2">
+
+                      <div class="form-outline form-white">
+                        <input type="text" class="form-control form-control-lg"
+                        required [(ngModel)]="zip" name="zipInput" #custZip="ngModel" minlength="5"/>
+                        <label class="form-label" >Zip Code</label>
+                      </div>
+                    </div>
+
+                    <div class="col-md-7 mb-4 pb-2">
+                      <div class="form-outline form-white">
+                        <input type="text"  class="form-control form-control-lg"
+                        required [(ngModel)]="city" name="cityInput" #custCity="ngModel" minlength="3"/>
+                        <label class="form-label" >City</label>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="mb-4">
+                  <div class="form-outline form-white">
+                    <input type="text"  class="form-control form-control-lg"
+                    required [(ngModel)]="phone" name="phoneInput" #custPhone="ngModel" minlength="9" maxlength="12"/>
+                    <label class="form-label" >Phone Number</label>
+                  </div>
+                  </div>
+
+                  <div class="mb-4">
+                    <div class="form-outline form-white">
+                      <input type="text" class="form-control form-control-lg"
+                      required [(ngModel)]="email" name="emailInput" #custEmail="ngModel" email/>
+                      <label class="form-label" >Your Email</label>
+                    </div>
+                  </div>
+
+                  <div class="form-check d-flex justify-content-start mb-4 pb-3">
+                    <input class="form-check-input me-3" required type="checkbox" value=""  name="agreementInput"/>
+                    <label class="form-check-label text-white">
+                      I do accept the <a href="#!" class="text-white"><u>Terms and Conditions</u></a> of your
+                      site.
+                    </label>
+                  </div>
+
+                  <button type="button" type="submit" [disabled]="form.invalid" class="btn btn-light btn-lg"
+                    data-mdb-ripple-color="dark">Order Now</button>
+                </div>
+              </form>
+                <!-- ADDRESS END -->
+
+  <!-- FORM VALIDATION START -->
+  <!-- Name check-->
+  <div *ngIf="custName.invalid && custName.dirty">
+    <div *ngIf="custName.errors && custName.errors['required']">
+      Please Enter Your name
     </div>
-
-    <div class="col-md-6 text-center">
-      <h2>Payment</h2>
-      <hr>
-      <form #form="ngForm" (ngSubmit)="submitForm()">
-        <h5>Name</h5>
-        <input type="text" name="name-" required minlength="6" [(ngModel)]="name"
-          (ngModelChange)="detectNameChange($event)" #custName="ngModel">
-        <br>
-        <h5>Address</h5>
-        <input type="text" name="address" required minlength="6" [(ngModel)]="address"
-          (ngModelChange)="detectAddressChange($event)" #custAdd="ngModel">
-        <br>
-        <h5>Credit Card</h5>
-        <input type="string" name="credit" required minlength="12" maxlength="12" [(ngModel)]="creditCard"
-          (ngModelChange)="detectCardChange($event)" #card="ngModel">
-        <br>
-        <button type="submit" [disabled]="form.invalid">Submit</button>
-      </form>
-
-      <div *ngIf="custName.invalid && custName.dirty">
-        <div *ngIf="custName.errors && custName.errors['required']">
-          Please Enter Your name
-        </div>
-        <div *ngIf="custName.errors && custName.errors['minlength']" class="alert alert-danger invalid">
-          The name must be at least of 6 charachters
-        </div>
-      </div>
-
-
-      <div *ngIf="custAdd.invalid && custAdd.dirty">
-        <div *ngIf="custAdd.errors && custAdd.errors['required']">
-          Please Enter Your address
-        </div>
-        <div *ngIf="custAdd.errors && custAdd.errors['minlength']" class="alert alert-danger invalid">
-          The address must be at least of 6 charachters
-        </div>
-
-
-        <div *ngIf="card.invalid && card.dirty">
-          <div *ngIf="card.invalid && card.dirty">
-            <div *ngIf="card.errors && card.errors['required']">
-              Please Enter Your address
-            </div>
-            <div *ngIf="card.errors && card.errors['minlength']" class="alert alert-danger invalid">
-              The credit card must be exactly 12 charachters
-            </div>
-            <div *ngIf="card.errors && card.errors['maxlength']" class="alert alert-danger invalid">
-              The credit card must be exactly 12 charachters
-            </div>
-          </div>
-
-        </div>
-      </div>
-      <hr>
+    <div *ngIf="custName.errors && custName.errors['minlength']" class="alert alert-danger invalid">
+      The name must be at least of 6 charachters
     </div>
-    <hr>
   </div>
-  <div class="div justify-content-center text-center">
-    <button routerLink="/productlist" class="btn btn-info text-center mh-5 ">back to products</button>
+
+  <!-- Address check-->
+  <div *ngIf="custAddress.invalid && custAddress.dirty">
+    <div *ngIf="custAddress.errors && custAddress.errors['required']">
+      Please Enter Your address
+    </div>
+    <div *ngIf="custAddress.errors && custAddress.errors['minlength']" class="alert alert-danger invalid">
+      The address must be at least of 12 charachters
+    </div>
+  </div>
+
+
+
+  <!-- Zip check-->
+  <div *ngIf="custZip.invalid && custZip.dirty">
+    <div *ngIf="custZip.errors && custZip.errors['required']">
+      Please Enter Your zip code
+    </div>
+    <div *ngIf="custZip.errors && custZip.errors['minlength']" class="alert alert-danger invalid">
+      The zip code must be at least 5 numbers
+    </div>
+  </div>
+
+  <!-- City check-->
+      <div *ngIf="custCity.invalid && custCity.dirty">
+        <div *ngIf="custCity.errors && custCity.errors['required']">
+          Please Enter a city
+        </div>
+        <div *ngIf="custCity.errors && custCity.errors['minlength']" class="alert alert-danger invalid">
+          Please enter a valid city
+        </div>
+      </div>
+
+   <!-- Phone check-->
+        <div *ngIf="custPhone.invalid && custPhone.dirty">
+          <div *ngIf="custPhone.errors && custPhone.errors['required']" class="alert alert-danger invalid">
+            Please Enter a phone number
+          </div>
+          <div *ngIf="custPhone.errors && custPhone.errors['minlength']" class="alert alert-danger invalid">
+            Please Enter a valid phone number
+          </div>
+        </div>
+
+    <!-- Email check -->
+       <div *ngIf="custEmail.invalid && custEmail.dirty">
+        <div *ngIf="custEmail.errors && custEmail.errors['required']" >
+          Please Enter Your Email
+        </div>
+        <div *ngIf="custEmail.errors && custEmail.errors['email']" class="alert alert-danger invalid">
+          Please Enter a correct email
+        </div>
+       </div>
+
+  <!-- FORM VALIDATION END -->
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </div>

@@ -12,9 +12,13 @@ import { CartService } from '../services/cart.service';
 export class CartComponent implements OnInit {
 
   total: number = 0;
+
   name: string = ''
   address: string = ''
-  creditCard: string = ''
+  zip: string = ''
+  city: string = ''
+  phone: string = ''
+  email: string = ''
 
   itemsMap = new Map<Product, number>();
 
@@ -32,12 +36,11 @@ export class CartComponent implements OnInit {
     this.ngOnInit()
   }
 
-  removeItem(product : Product) {
+  removeItem(product: Product) {
     this.cartService.removeItem(product)
     window.alert(`${product.title}is removed from cart`)
     this.ngOnInit()
   }
-
 
   submitForm() {
     if (this.itemsMap.size === 0) {
@@ -47,20 +50,6 @@ export class CartComponent implements OnInit {
       window.alert('success!')
       this.router.navigate(['success']);
     }
-
-  }
-
-
-  detectNameChange(value: string){
-    this.name = value;
-  }
-
-  detectAddressChange(value: string){
-    this.address = value;
-  }
-
-  detectCardChange(value: string){
-    this.creditCard = value;
   }
 
 
