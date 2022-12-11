@@ -7,6 +7,9 @@ View Live: http://mostaxd-ecommerce.s3-website.eu-central-1.amazonaws.com
 The data is fetched from the spring-boot backend: https://github.com/Mostaxd/E-Commerce-Backend-Spring-Boot
 
 
+_(Please Note: If the app receives no web traffic in a 30-minute period, it sleeps so it may take a couple of refreshes to get it back up and working)_
+
+
 ## Structure
 The Model "Product" is responsible for representing data object.
 
