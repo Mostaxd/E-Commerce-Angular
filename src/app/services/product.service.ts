@@ -16,8 +16,12 @@ export class ProductService {
   }
   constructor(private http: HttpClient) { }
 
+
+  productsURL = 'https://ecommerce-backend-3.herokuapp.com/api/products'
   getProducts(): Observable<Product[]> {
-    return this.http.get<Product []>('https://fakestoreapi.com/products/');
+    return this.http.get<GetResponse>(this.productsURL).pipe(
+      map(response => response._embedded.products)
+    );
   }
 
   getProductDetails(product: Product): Product{
@@ -30,6 +34,10 @@ export class ProductService {
   }
 
 }
-
+interface GetResponse {
+  _embedded: {
+    products: Product[];
+  }
+}
 
 

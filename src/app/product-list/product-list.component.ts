@@ -27,6 +27,6 @@ export class ProductListComponent implements OnInit {
       window.alert(product.title + ' added to cart')
     }
   }
-
-
 }
+
+
