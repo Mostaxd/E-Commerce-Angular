@@ -4,6 +4,8 @@ A Full-Stack Web-store that is fully based on the angular MVC Pattern.
 
 View Live: http://mostaxd-ecommerce.s3-website.eu-central-1.amazonaws.com
 
+The data is fetched from the spring-boot backend: https://github.com/Mostaxd/E-Commerce-Backend-Spring-Boot
+
 
 ## Structure
 The Model "Product" is responsible for representing data object.
