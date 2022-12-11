@@ -25,6 +25,9 @@ The Components are mainly used for the View Layer.
 
 ## Instructions
 Run `ng install` to install dependencies
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+
+Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`.
+
+The app will automatically reload if you change any of the source files.
 
 
