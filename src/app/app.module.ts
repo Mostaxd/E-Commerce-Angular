@@ -16,6 +16,7 @@ import { ImageSliderComponent } from './product-list/image-slider/image-slider.c
 
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
