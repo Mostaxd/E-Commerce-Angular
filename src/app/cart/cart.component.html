@@ -69,7 +69,7 @@
                   <div class="mb-4 pb-2">
                     <div class="form-outline form-white">
                       <input type="text" class="form-control form-control-lg"
-                      required [(ngModel)]="name" name="nameInput" #custName="ngModel" minlength="5" />
+                      required [(ngModel)]="name" name="nameInput" #custName="ngModel" />
                       <label class="form-label" >Name</label>
                     </div>
                   </div>
@@ -77,7 +77,7 @@
                   <div class="mb-4 pb-2">
                     <div class="form-outline form-white">
                       <input type="text" class="form-control form-control-lg"
-                      required [(ngModel)]="address" name="addressInput" #custAddress="ngModel" minlength="12"/>
+                      required [(ngModel)]="address" name="addressInput" #custAddress="ngModel" />
                       <label class="form-label" >Address</label>
                     </div>
                   </div>
@@ -135,7 +135,7 @@
   <!-- FORM VALIDATION START -->
   <!-- Name check-->
   <div *ngIf="custName.invalid && custName.dirty">
-    <div *ngIf="custName.errors && custName.errors['required']">
+    <div *ngIf="custName.errors && custName.errors['required']" class="alert alert-danger invalid">
       Please Enter Your name
     </div>
     <div *ngIf="custName.errors && custName.errors['minlength']" class="alert alert-danger invalid">

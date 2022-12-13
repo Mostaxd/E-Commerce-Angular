@@ -10,6 +10,11 @@ import { FormsModule } from '@angular/forms';
 import { ProductDetailsComponent } from './product-details/product-details.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { SuccessComponent } from './cart/success/success.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
+import { trigger , state , style } from '@angular/animations';
+import { ImageSliderComponent } from './product-list/image-slider/image-slider.component'
+
+
 
 @NgModule({
   declarations: [
@@ -18,14 +23,16 @@ import { SuccessComponent } from './cart/success/success.component';
     ProductComponent,
     CartComponent,
     ProductDetailsComponent,
-    SuccessComponent
+    SuccessComponent,
+    ImageSliderComponent
   ],
   imports: [
     HttpClientModule,
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    BrowserAnimationsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

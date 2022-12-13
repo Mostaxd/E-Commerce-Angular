@@ -18,8 +18,9 @@ export class ProductService {
 
 
   productsURL = 'https://ecommerce-backend-3.herokuapp.com/api/products'
+  localURL = 'http://localhost:8080/api/products'
   getProducts(): Observable<Product[]> {
-    return this.http.get<GetResponse>(this.productsURL).pipe(
+    return this.http.get<GetResponse>(this.localURL).pipe(
       map(response => response._embedded.products)
     );
   }
