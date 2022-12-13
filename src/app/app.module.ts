@@ -12,7 +12,8 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { SuccessComponent } from './cart/success/success.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import { trigger , state , style } from '@angular/animations';
-import { ImageSliderComponent } from './product-list/image-slider/image-slider.component'
+import { ImageSliderComponent } from './product-list/image-slider/image-slider.component';
+import { CarouselModule } from 'ngx-bootstrap/carousel'
 
 
 
@@ -34,6 +35,7 @@ import { ImageSliderComponent } from './product-list/image-slider/image-slider.c
     FormsModule,
     FontAwesomeModule,
     BrowserAnimationsModule,
+    CarouselModule.forRoot(),
   ],
   providers: [],
   bootstrap: [AppComponent]
