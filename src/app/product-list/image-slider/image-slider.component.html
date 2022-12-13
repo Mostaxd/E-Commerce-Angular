@@ -1,12 +1,10 @@
-<div class="slider">
-    <div>
-      <div (click)="prevSlide()" class="leftArrow">❰</div>
-      <div (click)="nextSlide()" class="rightArrow">❱</div>
-    </div>
-    <div
-      class="slide"
-      [ngStyle]="{ 'background-image': getCurrentSlideUrl() }"
-    ></div>
-  </div>
+<carousel [isAnimated]="true" [interval]="5000">
+  <slide *ngFor="let slide of slides">
+    <img src="{{slide.url}}" alt="{{slide.title}}" style="display: block; width: 100%;">
+  </slide>
+</carousel>
+
+
+
 
 
