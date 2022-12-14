@@ -6,18 +6,27 @@
 
   <div class="row  justify-content-center mt-1">
 
-    <div class="col-1 mt-5">
 
 
-    </div>
+    <div class="col-12">
+      <mat-drawer-container class="example-container" autosize>
+        <mat-drawer #drawer class="example-sidenav" mode="side">
+          <h6 class="my-5">Dresses</h6>
+        </mat-drawer>
 
-    <div class="col-11">
+        <div class="example-sidenav-content">
+          <button  mat-raised-button mat-button color="primary" (click)="drawer.toggle()">
+            Filter by
+          </button>
+        </div>
+
+
       <div class="row">
         <div class="col-sm-3 col-4" *ngFor="let product of products">
           <app-product [product]="product" (cartAdder)="addToCart($event)"></app-product>
         </div>
       </div>
-
+    </mat-drawer-container>
     </div>
 
 

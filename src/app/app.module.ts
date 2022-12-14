@@ -16,6 +16,10 @@ import { ImageSliderComponent } from './product-list/image-slider/image-slider.c
 import { CarouselModule } from 'ngx-bootstrap/carousel'
 import {MatSidenavModule} from '@angular/material/sidenav';
 import { FooterComponent } from './footer/footer.component';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatSelectModule} from '@angular/material/select';
+import {MatButtonModule} from '@angular/material/button';
+
 
 
 
@@ -41,6 +45,10 @@ import { FooterComponent } from './footer/footer.component';
     BrowserAnimationsModule,
     CarouselModule.forRoot(),
     MatSidenavModule,
+    MatFormFieldModule,
+    MatSelectModule,
+    MatButtonModule
+
 
   ],
   providers: [],

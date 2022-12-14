@@ -12,6 +12,7 @@ import { Slide } from '../model/Slide';
 })
 export class ProductListComponent implements OnInit {
   products: Product[] = [];
+  showFiller = false;
 
   slides: Slide[] = [
     {url: 'assets/model.jpg', title: 'model1'},
