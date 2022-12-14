@@ -4,15 +4,21 @@
 <image-slider [slides]="slides"></image-slider>
 
 
-  <div class="row align-items-center justify-content-center ">
-    <!-- <div style="width:100%;height:600px;margin:10px auto;">
-      <image-slider [slides]="slides" ></image-slider>
-    </div> -->
-    <hr>
+  <div class="row  justify-content-center mt-1">
 
-    <div class="col-sm-3" *ngFor="let product of products">
-      <app-product [product]="product" (cartAdder)="addToCart($event)"></app-product>
+    <div class="col-1 mt-5">
+
+
     </div>
-  </div>
+
+    <div class="col-11">
+      <div class="row">
+        <div class="col-sm-3 col-4" *ngFor="let product of products">
+          <app-product [product]="product" (cartAdder)="addToCart($event)"></app-product>
+        </div>
+      </div>
+
+    </div>
+
 
 </div>

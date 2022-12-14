@@ -8,16 +8,26 @@ p {
 }
 
 .product{
-  display: flex;
-  flex-direction: column;
   margin-top: auto;
   padding-top: auto;
 }
+.product:hover {
+  transform: scale(1.01);
+}
 
 img {
-  background-size: cover;
+  background-size: cover ;
   background-position: center;
 }
+
+@media (max-width: 1250px) {
+  img {
+    width: 100px;
+    height: 200px;
+    overflow: hidden;
+  }
+}
+
 
 
 

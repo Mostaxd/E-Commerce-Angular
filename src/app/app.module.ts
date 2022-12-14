@@ -14,6 +14,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import { trigger , state , style } from '@angular/animations';
 import { ImageSliderComponent } from './product-list/image-slider/image-slider.component';
 import { CarouselModule } from 'ngx-bootstrap/carousel'
+import {MatSidenavModule} from '@angular/material/sidenav';
+import { FooterComponent } from './footer/footer.component';
+
 
 
 
@@ -26,7 +29,8 @@ import { CarouselModule } from 'ngx-bootstrap/carousel'
     CartComponent,
     ProductDetailsComponent,
     SuccessComponent,
-    ImageSliderComponent
+    ImageSliderComponent,
+    FooterComponent,
   ],
   imports: [
     HttpClientModule,
@@ -36,6 +40,8 @@ import { CarouselModule } from 'ngx-bootstrap/carousel'
     FontAwesomeModule,
     BrowserAnimationsModule,
     CarouselModule.forRoot(),
+    MatSidenavModule,
+
   ],
   providers: [],
   bootstrap: [AppComponent]

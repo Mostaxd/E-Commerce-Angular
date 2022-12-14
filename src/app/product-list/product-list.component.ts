@@ -4,6 +4,7 @@ import { CartService } from '../services/cart.service';
 import { ProductService } from '../services/product.service';
 import { Slide } from '../model/Slide';
 
+
 @Component({
   selector: 'app-product-list',
   templateUrl: './product-list.component.html',
@@ -21,7 +22,8 @@ export class ProductListComponent implements OnInit {
 
 
   constructor(private productService: ProductService,
-              private cartService: CartService) { }
+              private cartService: CartService,
+              ) { }
 
   ngOnInit(): void {
     this.productService.getProducts().subscribe(products => this.products = products)
@@ -34,6 +36,10 @@ export class ProductListComponent implements OnInit {
       window.alert(product.title + ' added to cart')
     }
   }
+
+
+
+
 }
 
 

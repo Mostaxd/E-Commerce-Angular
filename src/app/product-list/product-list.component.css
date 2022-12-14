@@ -1,0 +1,9 @@
+.sidebar {
+    margin: 0px;
+    padding: 0px;
+    min-width: fit-content;
+    height: 100%;
+    border: 1px solid #aaa;
+    background: #D3D3D3;
+    border: 1px solid black;
+  }

@@ -10,7 +10,6 @@ export class CartService {
 
   constructor() { }
 
-
   addToCart(product: Product): boolean {
     if (this.cartMap.has(product)) {
       this.cartMap.set(product, (this.cartMap.get(product)! + 1))
@@ -22,15 +21,9 @@ export class CartService {
     }
   }
 
-
-
-
   isProductEqual(p1: Product, p2: Product) {
     return p1.id === p2.id;
   }
-
-
-
 
   getCartList() {
     return this.cartMap;
