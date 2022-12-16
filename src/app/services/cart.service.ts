@@ -50,11 +50,5 @@ export class CartService {
     for (let [key, value] of this.cartMap) {
       this.total += (key.price) * value
     }
-
-
   }
-
-
-
-
 }

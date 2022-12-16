@@ -1,4 +1,7 @@
 <div class="container">
+  <!-- toasts -->
+  <ngbd-toast-global></ngbd-toast-global>
+  <!--  -->
 
   <div class="row">
     <div class="col-sm-6">
@@ -10,12 +13,13 @@
       <p class="description mt-3">{{product.description}}
       </p>
 
+
       <div class="discount font-weight-bold mt-5">
         {{product.price | currency}}
         <span>50%</span>
         <div class="old-price"><del>old price</del></div>
       </div>
-      <button (click)="addToCart()" class="btn btn-dark">Add To Cart</button>
+      <button (click)="addToCart();" class="btn btn-dark">Add To Cart</button>
     </div>
   </div>
   <button routerLink="/productlist" class="btn btn-info text-center mh-5">back to products</button>

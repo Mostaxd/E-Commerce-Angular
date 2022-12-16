@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Product } from '../model/product';
 import { CartService } from '../services/cart.service';
+import { ToastService } from '../services/toast.service';
 
 
 @Component({
@@ -24,7 +25,8 @@ export class CartComponent implements OnInit {
 
 
   constructor(private cartService: CartService,
-    private router: Router) { }
+              private router: Router,
+              private toastService: ToastService) { }
 
   ngOnInit(): void {
     this.itemsMap = this.cartService.getCartList()
@@ -38,19 +40,21 @@ export class CartComponent implements OnInit {
 
   removeItem(product: Product) {
     this.cartService.removeItem(product)
-    window.alert(`${product.title}is removed from cart`)
+    this.toastService.show(`${product.title}is removed from cart`, { classname: 'bg-danger text-light', delay: 2500 })
     this.ngOnInit()
   }
 
   submitForm() {
     if (this.itemsMap.size === 0) {
-      window.alert('please add products to the cart!')
+      this.toastService.show('please add products to the cart!', { classname: 'bg-danger text-light', delay: 2500 })
     }
     else {
-      window.alert('success!')
+      this.toastService.show('success', { classname: 'bg-danger text-light', delay: 2500 })
       this.router.navigate(['success']);
     }
   }
+
+
 
 
 }

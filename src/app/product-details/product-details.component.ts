@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { Product } from '../model/product';
 import { CartService } from '../services/cart.service';
 import { ProductService } from '../services/product.service';
+import { ToastService } from '../services/toast.service';
 
 @Component({
   selector: 'app-product-details',
@@ -18,7 +19,8 @@ export class ProductDetailsComponent implements OnInit {
   }
 
   constructor(private productService: ProductService,
-              private cartService: CartService) { }
+              private cartService: CartService,
+              private toastService: ToastService) { }
 
 
 
@@ -28,7 +30,5 @@ export class ProductDetailsComponent implements OnInit {
 
   addToCart(){
     this.cartService.addToCart(this.product)
-    window.alert(this.product.title + ' added to cart')
   }
-
 }

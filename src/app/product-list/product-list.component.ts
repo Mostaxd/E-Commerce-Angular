@@ -3,6 +3,7 @@ import { Product } from '../model/product';
 import { CartService } from '../services/cart.service';
 import { ProductService } from '../services/product.service';
 import { Slide } from '../model/Slide';
+import { ToastService } from '../services/toast.service';
 
 
 @Component({
@@ -24,6 +25,7 @@ export class ProductListComponent implements OnInit {
 
   constructor(private productService: ProductService,
               private cartService: CartService,
+              private toastService: ToastService
               ) { }
 
   ngOnInit(): void {
@@ -33,14 +35,14 @@ export class ProductListComponent implements OnInit {
 
   addToCart(product: Product){
     let added = this.cartService.addToCart(product)
-    if(added){
-      window.alert(product.title + ' added to cart')
-    }
   }
 
-
-
+  showSuccess(){
+    this.toastService.show('hello world', { classname: 'bg-success text-light', delay: 2000 })
+  }
 
 }
+
+
 
 
