@@ -22,12 +22,15 @@ The Components are mainly used for the View Layer.
 - The store is able to fetch data and represent them.
 - Ability to add items to cart and remove them.
 - Show Total in cart
+- Notifications System when adding/removing products
 - Template-Driven Form-Validation for payment.
+
+- In process: Payment system is being integrated...
 
 
 
 ## Instructions
-Run `ng install` to install dependencies
+Run `npm install` to install dependencies
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`.
 
