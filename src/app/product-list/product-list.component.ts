@@ -36,11 +36,6 @@ export class ProductListComponent implements OnInit {
   addToCart(product: Product){
     let added = this.cartService.addToCart(product)
   }
-
-  showSuccess(){
-    this.toastService.show('hello world', { classname: 'bg-success text-light', delay: 2000 })
-  }
-
 }
 
 

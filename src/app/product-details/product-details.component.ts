@@ -30,5 +30,6 @@ export class ProductDetailsComponent implements OnInit {
 
   addToCart(){
     this.cartService.addToCart(this.product)
+    this.toastService.show(`${this.product.title} Added to cart`, { classname: 'bg-success text-light', delay: 2000 })
   }
 }
