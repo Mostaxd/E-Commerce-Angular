@@ -32,6 +32,8 @@ The Components are mainly used for the View Layer.
 ## Instructions
 Run `npm install --force` to install dependencies
 
+Make sure you have TypeScript version between 4.8.2 and 4.9 `npm install typescript@4.8.2`
+
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`.
 
 The app will automatically reload if you change any of the source files.
