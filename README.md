@@ -30,7 +30,7 @@ The Components are mainly used for the View Layer.
 
 
 ## Instructions
-Run `npm install` to install dependencies
+Run `npm install --force` to install dependencies
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`.
 
