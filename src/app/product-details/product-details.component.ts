@@ -16,6 +16,7 @@ export class ProductDetailsComponent implements OnInit {
     title: '',
     description: '',
     price: 0,
+    category: 0,
   }
 
   constructor(private productService: ProductService,

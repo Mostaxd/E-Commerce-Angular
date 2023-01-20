@@ -9,7 +9,6 @@ import { CartComponent } from './cart/cart.component';
 import { FormsModule } from '@angular/forms';
 import { ProductDetailsComponent } from './product-details/product-details.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { SuccessComponent } from './cart/success/success.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import { trigger , state , style } from '@angular/animations';
 import { ImageSliderComponent } from './product-list/image-slider/image-slider.component';
@@ -23,6 +22,7 @@ import { NgbToastModule } from '@ng-bootstrap/ng-bootstrap';
 import { NgbPopoverModule } from '@ng-bootstrap/ng-bootstrap';
 import { NgbdToastGlobal } from "./toast/toast.component";
 import { ToastsContainer } from "./toast/toasts-container.component";
+import { MatCardModule } from '@angular/material/card';
 
 
 
@@ -38,9 +38,9 @@ import { ToastsContainer } from "./toast/toasts-container.component";
         ProductComponent,
         CartComponent,
         ProductDetailsComponent,
-        SuccessComponent,
         ImageSliderComponent,
         FooterComponent,
+
     ],
     providers: [],
     bootstrap: [AppComponent],
@@ -56,10 +56,11 @@ import { ToastsContainer } from "./toast/toasts-container.component";
         MatFormFieldModule,
         MatSelectModule,
         MatButtonModule,
+        MatCardModule,
         NgbToastModule,
         NgbPopoverModule,
         NgbdToastGlobal,
-        ToastsContainer
+        ToastsContainer,
     ]
 })
 export class AppModule { }

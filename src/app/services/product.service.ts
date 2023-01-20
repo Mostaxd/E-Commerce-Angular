@@ -4,7 +4,7 @@ import { map, Observable } from 'rxjs';
 import { Product } from '../model/product';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class ProductService {
   selectedProduct: Product = {
@@ -13,32 +13,36 @@ export class ProductService {
     title: '',
     description: '',
     price: 0,
-  }
-  constructor(private http: HttpClient) { }
+    category: 0,
+  };
+  constructor(private http: HttpClient) {}
 
+  deployableURL = 'https://ecommerce-backend-3.herokuapp.com';
+  localURL = 'http://localhost:8080';
 
-  productsURL = 'https://ecommerce-backend-3.herokuapp.com/api/products'
-  localURL = 'http://localhost:8080/api/products'
-  getProducts(): Observable<Product[]> {
-    return this.http.get<GetResponse>(this.localURL).pipe(
-      map(response => response._embedded.products)
-    );
-  }
+  getProducts(categoryId: number): Observable<Product[]> {
+    // return this.http.get<GetResponse>(this.localURL + "/api/products").pipe(
+    //   map(response => response._embedded.products)
+    // );
 
-  getProductDetails(product: Product): Product{
-   this.selectedProduct = product
-   return this.selectedProduct
+    return this.http.get<any>(this.localURL + `/api/category/${categoryId}`);
   }
 
-  sendProductDetails(){
-    return this.selectedProduct
+  getProductDetails(product: Product): Product {
+    this.selectedProduct = product;
+    return this.selectedProduct;
   }
 
+  sendProductDetails() {
+    return this.selectedProduct;
+  }
 }
 interface GetResponse {
   _embedded: {
     products: Product[];
-  }
+  };
 }
 
-
+interface fillteredByCategoryResponse {
+  products: Product[];
+}
