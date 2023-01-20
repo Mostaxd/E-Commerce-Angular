@@ -1,27 +1,35 @@
 <div class="container align-items-center justify-content-center">
-    <!-- toasts -->
-    <ngbd-toast-global></ngbd-toast-global>
-    <!--  -->
+  <!-- toasts -->
+  <ngbd-toast-global></ngbd-toast-global>
+  <!--  -->
 
   <image-slider [slides]="slides"></image-slider>
 
+  <mat-drawer-container class="productList-container mt-2" autosize>
+    <button
+      mat-raised-button
+      mat-button
+      color="primary"
+      (click)="drawer.toggle()"
+    >
+      Filter by
+    </button>
+    <mat-drawer #drawer class="productList-sidenav" mode="side">
+      <a routerLink="category/0">Dresses</a>
+      <br />
+      <a routerLink="category/1">Bags</a>
+    </mat-drawer>
 
-      <mat-drawer-container class="example-container mt-2" autosize>
-        <button  mat-raised-button mat-button color="primary" (click)="drawer.toggle()">
-          Filter by
-        </button>
-        <mat-drawer #drawer class="example-sidenav" mode="side">
-          <h6 class="my-5">Dresses</h6>
-        </mat-drawer>
-
-
-\
-
-      <div class="row">
-        <div class="products col-sm-4 col-6 col-md-3" *ngFor="let product of products">
-          <app-product [product]="product" (cartAdder)="addToCart($event);"></app-product>
-        </div>
+    <div class="row">
+      <div
+        class="products col-sm-4 col-6 col-md-3"
+        *ngFor="let product of products"
+      >
+        <app-product
+          [product]="product"
+          (cartAdder)="addToCart($event)"
+        ></app-product>
       </div>
-      </mat-drawer-container>
+    </div>
+  </mat-drawer-container>
 </div>
-
